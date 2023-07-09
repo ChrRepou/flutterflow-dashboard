@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1078115987955",
+    "project_id": "shopmate-b42a1",
+    "storage_bucket": "shopmate-b42a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078115987955:android:2b8801ce9012b8e640e286",
+        "android_client_info": {
+          "package_name": "com.mycompany.crmapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078115987955-irpadruveicn2d6i10f3jlufuba47fjr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhI5A4MbV-vnl61E5YcMgzevpz7nhqnMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078115987955-irpadruveicn2d6i10f3jlufuba47fjr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1078115987955-9ed3vtndt1cv5cf479sg2fjqmii4bv69.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.crmapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
