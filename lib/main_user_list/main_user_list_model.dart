@@ -19,10 +19,10 @@ class MainUserListModel extends FlutterFlowModel {
   // Model for webNav component.
   late WebNavModel webNavModel;
   // State field(s) for TextField widget.
-  final textFieldKey1 = GlobalKey();
-  TextEditingController? textController1;
-  String? textFieldSelectedOption1;
-  String? Function(BuildContext, String?)? textController1Validator;
+  final textFieldKey = GlobalKey();
+  TextEditingController? textController;
+  String? textFieldSelectedOption;
+  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for RatingBar widget.
   double? ratingBarValue1;
   // State field(s) for RatingBar widget.
@@ -35,12 +35,6 @@ class MainUserListModel extends FlutterFlowModel {
   double? ratingBarValue5;
   // State field(s) for RatingBar widget.
   double? ratingBarValue6;
-  // State field(s) for TextField widget.
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  // State field(s) for TextField widget.
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
 
   /// Initialization and disposal methods.
 
@@ -51,8 +45,6 @@ class MainUserListModel extends FlutterFlowModel {
   void dispose() {
     unfocusNode.dispose();
     webNavModel.dispose();
-    textController2?.dispose();
-    textController3?.dispose();
   }
 
   /// Action blocks are added here.

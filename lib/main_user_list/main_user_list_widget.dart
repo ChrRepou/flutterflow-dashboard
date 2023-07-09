@@ -521,9 +521,7 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
     super.initState();
     _model = createModel(context, () => MainUserListModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
-    _model.textController3 ??= TextEditingController();
+    _model.textController ??= TextEditingController();
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -698,9 +696,9 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
                                       optionsViewBuilder:
                                           (context, onSelected, options) {
                                         return AutocompleteOptionsList(
-                                          textFieldKey: _model.textFieldKey1,
+                                          textFieldKey: _model.textFieldKey,
                                           textController:
-                                              _model.textController1!,
+                                              _model.textController!,
                                           options: options.toList(),
                                           onSelected: onSelected,
                                           textStyle:
@@ -719,7 +717,7 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
                                       },
                                       onSelected: (String selection) {
                                         setState(() =>
-                                            _model.textFieldSelectedOption1 =
+                                            _model.textFieldSelectedOption =
                                                 selection);
                                         FocusScope.of(context).unfocus();
                                       },
@@ -729,19 +727,22 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
                                         focusNode,
                                         onEditingComplete,
                                       ) {
-                                        _model.textController1 =
+                                        _model.textController =
                                             textEditingController;
                                         return TextFormField(
-                                          key: _model.textFieldKey1,
+                                          key: _model.textFieldKey,
                                           controller: textEditingController,
                                           focusNode: focusNode,
                                           onEditingComplete: onEditingComplete,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.textController1',
+                                            '_model.textController',
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          onFieldSubmitted: (_) async {
+                                            context.pushNamed('AfterSearch');
+                                          },
                                           autofocus: true,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -815,7 +816,7 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall,
                                           validator: _model
-                                              .textController1Validator
+                                              .textControllerValidator
                                               .asValidator(context),
                                         );
                                       },
@@ -4055,110 +4056,6 @@ class _MainUserListWidgetState extends State<MainUserListWidget>
                                     ],
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: TextFormField(
-                                controller: _model.textController2,
-                                autofocus: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText:
-                                      FFLocalizations.of(context).getText(
-                                    'jnp5talw' /* Label here... */,
-                                  ),
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                validator: _model.textController2Validator
-                                    .asValidator(context),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: TextFormField(
-                                controller: _model.textController3,
-                                autofocus: true,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText:
-                                      FFLocalizations.of(context).getText(
-                                    'qo1j8ujh' /* Label here... */,
-                                  ),
-                                  labelStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).labelMedium,
-                                  enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context).error,
-                                      width: 2.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                                validator: _model.textController3Validator
-                                    .asValidator(context),
                               ),
                             ),
                           ],
