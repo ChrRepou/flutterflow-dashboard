@@ -662,6 +662,9 @@ class _AfterDeleteWidgetState extends State<AfterDeleteWidget>
                                             Duration(milliseconds: 2000),
                                             () => setState(() {}),
                                           ),
+                                          onFieldSubmitted: (_) async {
+                                            context.pushNamed('AfterSearch');
+                                          },
                                           autofocus: true,
                                           obscureText: false,
                                           decoration: InputDecoration(

@@ -636,16 +636,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'id': 'KesehatanAi',
       'ms': 'KesihatanAi',
     },
-    'jnp5talw': {
-      'en': 'Label here...',
-      'id': '',
-      'ms': '',
-    },
-    'qo1j8ujh': {
-      'en': 'Label here...',
-      'id': '',
-      'ms': '',
-    },
     'btgh5n2u': {
       'en': 'Home',
       'id': '',
